@@ -24,7 +24,7 @@ it("renders button correctly", ()=> {
     expect(getByTestId('button')).toHaveTextContent("save")
 });
 
-it("matches snapshot", () => {
+it("matches snapshot 1", () => {
     const tree = create(<Button label = "save"> </Button>).toJSON();   
     //will convert it into a virtual DOM object and save it in tree object
     expect(tree).toMatchSnapshot(); 
@@ -32,4 +32,11 @@ it("matches snapshot", () => {
     //there should be a file called button.snapshot. It will create snapshot folder and file inside it because it is
     //currently not present. It renders the entire component we pass using this new created file
     //hence, it saved the snapshot
+});
+
+it("matches snapshot 2", () => {
+    const tree = create(<Button label = "click me please"> </Button>).toJSON();   
+    
+    expect(tree).toMatchSnapshot(); 
+    
 });
